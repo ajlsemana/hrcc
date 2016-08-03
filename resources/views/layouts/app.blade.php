@@ -34,14 +34,11 @@
                         <ul class="nav pull-right">
                            <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                 class="icon-cog"></i> Howdy, {{ Auth::user()->name }} <b class="caret"></b></a>
+                                 class="icon-cog"></i> Howdy, {{ Auth::user()->first_name.' '.Auth::user()->last_name }} <b class="caret"></b></a>
                               <ul class="dropdown-menu">
                                  <li><a href="javascript:;">Profile</a></li>
-                                 @if (! Auth::guest())
+                                 <li><a href="javascript:;">Password</a></li>
                                  <li><a href="{{ url('/logout') }}">Logout</a></li>
-                                 @else
-                                 <li><a href="{{ url('/login') }}">Login</a></li>
-                                 @endif
                               </ul>
                            </li>
                         </ul>
@@ -55,13 +52,14 @@
          <!-- /navbar-inner --> 
       </div>
       <!-- /navbar -->  
-      <!-- subnavbar -->    
+      <!-- subnavbar --> 
+      <?php $current_route = Route::getCurrentRoute()->getPath(); ?>        
          <div class="subnavbar">
            <div class="subnavbar-inner">
              <div class="container">
                <ul class="mainnav">
                  <li class="active"><a href="#"><i class="icon-home"></i><span>Home</span> </a> </li>
-                 <li><a href="#"><i class="icon-group"></i><span>Workforce</span> </a> </li>
+                 <li><a href="{{ url('users') }}"><i class="icon-group"></i><span>Workforce</span> </a> </li>
                  <li><a href="#"><i class="icon-user"></i><span>Agent Profiles</span> </a></li>
                  <li><a href="#"><i class="icon-sitemap"></i><span>Departments</span> </a> </li>
                  <li><a href="#"><i class="icon-comments-alt"></i><span>Announcements</span> </a> </li>                 
@@ -73,7 +71,7 @@
       <div class="main">
         <div class="main-inner">
           <div class="container">
-            <div class="row">
+            <div class="row">              
                 @yield('content')
             </div>
           </div>

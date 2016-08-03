@@ -14,6 +14,9 @@ Route::group(['middleware' => 'web'], function () {
 	Route::auth();	
 
     Route::get('/', function () {
+    	if(Auth::guest()) {
+    		return view('auth/login');
+    	}
     	return view('main');
 	});
 
@@ -22,5 +25,19 @@ Route::group(['middleware' => 'web'], function () {
 	})->middleware('isAdmin');
 
 	Route::get('/home', 'HomeController@index');
-	#Route::get('/logout', 'AuthController@getLogout');
+	
+	#Administrator
+	Route::get('users', 'UserController@index');
+	Route::group(array('prefix' => 'admin'), function() {
+		Route::group(array('prefix' => 'users'), function() {
+			Route::get('add', 'UserController@insertForm');
+		 	Route::get('update', 'UserController@updateForm');		 	
+		 	Route::get('insert', 'UserController@insertForm');	
+		 	Route::post('addData', 'UserController@insertData');
+		 	Route::post('updateData', 'UserController@updateData');
+		 	Route::post('delete', 'UserController@deleteData'); 
+		 	Route::post('changePassword', 'UserController@changePassword');
+		});
+	});
+	#End Administrator
 });
