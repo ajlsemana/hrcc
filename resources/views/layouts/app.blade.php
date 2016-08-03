@@ -31,7 +31,7 @@
                   </div>
                   <div class="span11">
                      <div class="nav-collapse">
-                        <ul class="nav pull-right">
+                        <ul class="nav pull-right" style="background: #08659B;">
                            <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                                  class="icon-cog"></i> Howdy, {{ Auth::user()->first_name.' '.Auth::user()->last_name }} <b class="caret"></b></a>

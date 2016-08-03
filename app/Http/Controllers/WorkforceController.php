@@ -19,14 +19,16 @@ class WorkforceController extends Controller
         $this->data['workforces'] = Workforce::getList();
         $this->data['total_workforce'] = Workforce::getListCtr();
 
-        return view('users.list', $this->data);
+        return view('workforce.list', $this->data);
     }
 
-    public function updateForm() {        
-        return view('users.update');
+    public function updateForm() {       
+    	#$this->data['data'] = Workforce::find(Request::input('id')); 
+
+        return view('workforce.update', $this->data);
     }
 
     public function insertForm() {        
-        return view('users.insert');
+        return view('workforce.insert');
     }    
 }

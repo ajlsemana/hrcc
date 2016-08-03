@@ -37,15 +37,15 @@
         <div class="span12">
           <div style="padding-top: 10px; border-bottom: 1px solid #D5D5D5; width: 92%"></div>
           <div align="left" style="padding-top:20px;">
-            <a class="btn btn-primary" id="submitForm">Search</a>
-            <a class="btn" id="clearForm">Clear</a>
+            <a class="btn btn-primary" id="submitForm">Filter</a>
+            <a class="btn" href="{{ url('admin/workforce') }}">Clear</a>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div align="left" style="padding-bottom: 15px;">
-    <a href="#" class="btn btn-primary">Add Workforce</a>
+    <a href="{{ url('admin/workforce/add') }}" class="btn btn-primary">Add Workforce</a>
     <a href="#deleteModal" data-toggle="modal" class="btn btn-primary" id="confirmDelete">Delete Workforce</a>
   </div>
   <?php
@@ -95,7 +95,7 @@
                   <td>{{ $workforce->contact_no }}</td>
                   <td>{{ date('d M Y', strtotime($workforce->birthdate)) }}</td>
                   <td>{{ date('d M Y', strtotime($workforce->joining_date)) }}</td>
-                  <td align="center"><a href="#" title="Update"><i class="icon-edit"></i></a></td>
+                  <td align="center"><a href="{{ url('admin/workforce/update?id='.$workforce->id) }}" title="Update"><i class="icon-edit"></i></a></td>
               </tr>
             @endforeach
           </table>
