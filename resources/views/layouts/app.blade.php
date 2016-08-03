@@ -58,11 +58,11 @@
            <div class="subnavbar-inner">
              <div class="container">
                <ul class="mainnav">
-                 <li class="active"><a href="#"><i class="icon-home"></i><span>Home</span> </a> </li>
-                 <li><a href="{{ url('users') }}"><i class="icon-group"></i><span>Workforce</span> </a> </li>
-                 <li><a href="#"><i class="icon-user"></i><span>Agent Profiles</span> </a></li>
-                 <li><a href="#"><i class="icon-sitemap"></i><span>Departments</span> </a> </li>
-                 <li><a href="#"><i class="icon-comments-alt"></i><span>Announcements</span> </a> </li>                 
+                 <li class="@if(in_array($current_route, array('/'))) active @endif"><a href="{{ url('/') }}"><i class="icon-home"></i><span>Home</span> </a> </li>
+                 <li class="@if(in_array($current_route, array('admin/workforce', 'admin/workforce/add', 'admin/workforce/update'))) active @endif"><a href="{{ url('admin/workforce') }}"><i class="icon-group"></i><span>Workforce</span> </a> </li>
+                 <li class=""><a href="#"><i class="icon-user"></i><span>Agent Profiles</span> </a></li>
+                 <li class=""><a href="#"><i class="icon-sitemap"></i><span>Departments</span> </a> </li>
+                 <li class=""><a href="#"><i class="icon-comments-alt"></i><span>Announcements</span> </a> </li>                 
                </ul>
              </div>    
            </div>  

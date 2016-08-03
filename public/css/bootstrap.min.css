@@ -992,6 +992,7 @@ table {
 .table {
 	width: 100%;
 	margin-bottom: 3px;
+	
 }
 .table th, .table td {
 	padding: 8px;

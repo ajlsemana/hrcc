@@ -21,19 +21,5 @@ class UserController extends Controller
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {        
-        return view('users.list');
-    }
-
-    public function updateForm()
-    {        
-        return view('users.update');
-    }
-
-    public function insertForm()
-    {        
-        return view('users.insert');
-    }
+     */    
 }

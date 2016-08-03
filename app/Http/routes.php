@@ -26,18 +26,19 @@ Route::group(['middleware' => 'web'], function () {
 
 	Route::get('/home', 'HomeController@index');
 	
-	#Administrator
-	Route::get('users', 'UserController@index');
+	#Administrator	
 	Route::group(array('prefix' => 'admin'), function() {
-		Route::group(array('prefix' => 'users'), function() {
-			Route::get('add', 'UserController@insertForm');
-		 	Route::get('update', 'UserController@updateForm');		 	
-		 	Route::get('insert', 'UserController@insertForm');	
-		 	Route::post('addData', 'UserController@insertData');
-		 	Route::post('updateData', 'UserController@updateData');
-		 	Route::post('delete', 'UserController@deleteData'); 
-		 	Route::post('changePassword', 'UserController@changePassword');
+		Route::group(array('prefix' => 'workforce'), function() {
+			Route::get('add', 'WorkforceController@insertForm');
+		 	Route::get('update', 'WorkforceController@updateForm');		 	
+		 	Route::get('insert', 'WorkforceController@insertForm');	
+		 	Route::post('addData', 'WorkforceController@insertData');
+		 	Route::post('updateData', 'WorkforceController@updateData');
+		 	Route::post('delete', 'WorkforceController@deleteData'); 		 	
 		});
+		
+		Route::get('workforce', 'WorkforceController@index');
+		Route::post('changePassword', 'UserController@changePassword');
 	});
 	#End Administrator
 });
