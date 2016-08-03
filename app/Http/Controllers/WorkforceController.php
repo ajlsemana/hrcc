@@ -17,6 +17,7 @@ class WorkforceController extends Controller
 
 	public function index() {
         $this->data['workforces'] = Workforce::getList();
+        $this->data['total_workforce'] = Workforce::getListCtr();
 
         return view('users.list', $this->data);
     }

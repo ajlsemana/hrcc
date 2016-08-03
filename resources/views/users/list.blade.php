@@ -44,6 +44,10 @@
       </div>
     </div>
   </div>
+  <div align="left" style="padding-bottom: 15px;">
+    <a href="#" class="btn btn-primary">Add Workforce</a>
+    <a href="#deleteModal" data-toggle="modal" class="btn btn-primary" id="confirmDelete">Delete Workforce</a>
+  </div>
   <?php
     $role = array(
         1 => 'Agent',
@@ -55,6 +59,7 @@
   <div class="widget widget-nopad">
     <div class="widget-header"> <i class="icon-group"></i>
       <h3> Workforce</h3>
+      <span class="pagination-totalItems">Total: {{ $total_workforce }}</span>
     </div>
     <!-- /widget-header -->
     <div class="widget-content">
@@ -75,7 +80,7 @@
             </tr>
             @foreach ($workforces as $workforce)
               <tr>
-                  <td align="center"><input type="checkbox" class="checkbox" name="selected[]" value="change this to PK ID" data-name="abdullah.saif@esh-me.com"></td>
+                  <td align="center"><input type="checkbox" class="checkbox" name="selected[]" value="{{ $workforce->id }}" data-name="{{ $workforce->first_name.' '.$workforce->last_name }}"></td>
                   <td align="center">
                     @if(! empty($workforce->photo))
                       <img src="{!! asset('public/profile_picture/'.$workforce->photo) !!}" class="img-responsive" alt="photo" width="40">
@@ -101,4 +106,47 @@
     </div>
   </div>
 </div>
+<!--modal for delete -->
+<div id="deleteModal" style="overflow-y: hidden;"  class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  
+  <form>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 id="myModalLabel">Are you sure you want to delete?</h3>
+  </div>
+  <div class="modal-body">
+    <fieldset>
+      <div class="control-group">                             
+        <div class="controls">
+          <div id="delete_list" style="margin-top: 3px;"></div>
+        </div> <!-- /controls -->       
+      </div> <!-- /control-group -->
+    </fieldset>
+  </div>
+  <div class="modal-footer" style="margin-bottom: -16px; ">
+    <button class="btn btn-primary" id="btn-delete" type="submit">OK</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+  </div>  
+  </form>
+</div>
+<script>
+  // Delete
+    $('#confirmDelete').click(function() {
+      var count = $("[name='selected[]']:checked").length;
+    
+    if (count>0) {
+      var items = new Array();
+      var del_items = '';
+      
+      $("[name='selected[]']:checked").each(function() {
+        items.push('- '+$(this).data('name'));
+        del_items += '<input type="hidden" name="selected[]" value="'+ $(this).val() +'" />';
+      });
+      
+      $('#delete_list').html(items.join('<br />') + del_items);
+    } else {
+      alert('Please select rows.');
+      return false;
+    }
+    });
+</script>
 @endsection

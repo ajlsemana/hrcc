@@ -15,4 +15,13 @@ class Workforce extends Model
 		
 		return $query;
 	}
+
+	public static function getListCtr() {
+		$query = DB::table('users')
+			->where('user_type', '=', 3)
+			->orderBy('first_name', 'ASC')
+			->count();
+		
+		return $query;
+	}
 }
