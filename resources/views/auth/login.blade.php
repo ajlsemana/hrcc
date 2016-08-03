@@ -11,8 +11,7 @@
             
             <div class="login-fields">
                 
-                <p>Please provide your details</p>
-                
+                <p>Please provide your details</p>                
                 <div class="field">
                     <label for="username">Username</label>                  
                     <input id="username" type="email" placeholder="Email" name="email" value="{{ old('email') }}" class="login username-field" />                    
@@ -23,14 +22,12 @@
                     <input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
                 </div> <!-- /password -->
                 
-            </div> <!-- /login-fields -->
-            
+            </div> <!-- /login-fields -->        
             <div class="login-actions">
                 
                 <span class="login-checkbox">
                     <a href="#">Forgotten your password?</a>
-                </span>
-                                    
+                </span>                
                 <input type="submit" class="button btn btn-primary btn-large" value="Sign In" name="submit">
                 
             </div> <!-- .actions -->

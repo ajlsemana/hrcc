@@ -11,7 +11,7 @@
 |
 */
 Route::group(['middleware' => 'web'], function () {
-	Route::auth();
+	Route::auth();	
 
     Route::get('/', function () {
     	return view('welcome');
@@ -22,4 +22,5 @@ Route::group(['middleware' => 'web'], function () {
 	})->middleware('isAdmin');
 
 	Route::get('/home', 'HomeController@index');
+	#Route::get('/logout', 'AuthController@getLogout');
 });

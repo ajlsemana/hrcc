@@ -36,7 +36,6 @@
 	</div> <!-- /navbar-inner -->
 	
 </div> <!-- /navbar -->
-
 @yield('content')
 
 <script type="text/javascript" src="{!! asset('public/js/jquery-1.7.2.min.js') !!}"></script> 
