@@ -16,7 +16,7 @@ class Workforce extends Model
     public static function getList() {
 		$query = DB::table('users')
 			->where('role', '!=', 1)
-			->orderBy('first_name', 'ASC')
+			->orderBy('first_name', 'ASC')			
 			->get();
 		
 		return $query;

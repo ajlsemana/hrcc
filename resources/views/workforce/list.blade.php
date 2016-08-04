@@ -68,13 +68,13 @@
             <tr>
                 <th style="width: 20px;"><input type="checkbox" id="main_checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></th>
                 <th>&nbsp;</th>
-                <th>Full Name</th>                
-                <th>Email Address</th>
-                <th>Role</th>
-                <th>Gender</th>
+                <th><a href="#" class="asc">Full Name</a></th>                
+                <th><a href="#">Email Address</th>
+                <th><a href="#">Role</a></th>
+                <th><a href="#">Gender</a></th>
                 <th>Mobile No.</th>
-                <th>Birthdate</th>
-                <th>Date Joined</th>
+                <th><a href="#">Birthdate</a></th>
+                <th><a href="#">Date Joined</a></th>
                 <th>Action</th>
             </tr>
             @foreach ($workforces as $workforce)
