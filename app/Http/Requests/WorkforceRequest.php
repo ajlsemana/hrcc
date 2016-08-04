@@ -26,7 +26,8 @@ class WorkforceRequest extends Request
         return [
             'first_name' => 'required',
             'role' => 'required',
-            'email' => 'required|email|unique:users'
+            #'email' => 'required|email|unique:users'
+            'email' => 'required|email'
         ];
     }
 }

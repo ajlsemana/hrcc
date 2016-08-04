@@ -74,7 +74,7 @@
                 <th>Gender</th>
                 <th>Mobile No.</th>
                 <th>Birthdate</th>
-                <th>Date of Joining</th>
+                <th>Date Joined</th>
                 <th>Action</th>
             </tr>
             @foreach ($workforces as $workforce)
@@ -94,7 +94,7 @@
                   <td>{{ $workforce->contact_no }}</td>
                   <td>{{ date('d M Y', strtotime($workforce->birthdate)) }}</td>
                   <td>{{ date('d M Y', strtotime($workforce->joining_date)) }}</td>
-                  <td align="center"><a href="{{ url('admin/workforce/update?id='.$workforce->id) }}" title="Update"><i class="icon-edit"></i></a></td>
+                  <td align="center"><a href="{{ url('admin/workforce/update/'.$workforce->id) }}" title="Update"><i class="icon-edit"></i></a></td>
               </tr>
             @endforeach
           </table>

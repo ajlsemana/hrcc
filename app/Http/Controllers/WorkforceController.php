@@ -27,8 +27,8 @@ class WorkforceController extends Controller
         return view('workforce.list', $this->data);
     }
 
-    public function updateForm() {       
-    	#$this->data['data'] = Workforce::find(Request::input('id')); 
+    public function updateForm($id) {      
+       	$this->data['data'] = Workforce::getMyData($id); 
 
         return view('workforce.update', $this->data);
     }
@@ -51,14 +51,31 @@ class WorkforceController extends Controller
                 'role'          => $request->input('role'),
                 'contact_no'    => $request->input('contact_no'),
                 'birthdate'     => $request->input('birthdate'),
-                'joining_date'  => $request->input('joining_date'),
-                'user_type'     => $request->input('role')
+                'joining_date'  => $request->input('joining_date')
             );        
         Workforce::insertData($arrParam);   
 
         return redirect('admin/workforce')
                     ->with('success', 'Successfully saved.');
     } 
+
+    public function updateData(WorkforceRequest $request) {
+        $arrParam = array(
+                'username'      => $request->input('email'),
+                'first_name'    => $request->input('first_name'),
+                'last_name'     => $request->input('last_name'),
+                'email'         => $request->input('email'),
+                'gender'        => $request->input('gender'),
+                'role'          => $request->input('role'),
+                'contact_no'    => $request->input('contact_no'),
+                'birthdate'     => $request->input('birthdate'),
+                'joining_date'  => $request->input('joining_date')
+            );        
+        Workforce::updateData($request->input('id'), $arrParam);   
+
+        return redirect('admin/workforce')
+                    ->with('success', 'Successfully saved.');
+    }
 
     private function generateCode($length = 8, $symbols = TRUE) {
         $alphabets_lowercase = range('a', 'z');

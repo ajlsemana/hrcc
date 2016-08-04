@@ -30,7 +30,7 @@ Route::group(['middleware' => 'web'], function () {
 	Route::group(array('prefix' => 'admin'), function() {
 		Route::group(array('prefix' => 'workforce'), function() {
 			Route::get('add', 'WorkforceController@insertForm');
-		 	Route::get('update', 'WorkforceController@updateForm');		 	
+		 	Route::get('update/{id}', 'WorkforceController@updateForm');		 	
 		 	Route::get('insert', 'WorkforceController@insertForm');	
 		 	Route::post('addData', 'WorkforceController@insertData');
 		 	Route::post('updateData', 'WorkforceController@updateData');
