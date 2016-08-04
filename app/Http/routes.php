@@ -19,7 +19,7 @@ Route::group(['middleware' => 'web'], function () {
     	}
     	return view('main');
 	});
-    
+
 	Route::get('/home', 'HomeController@index');
 
 	#Administrator		
@@ -35,6 +35,9 @@ Route::group(['middleware' => 'web'], function () {
 		});
 		
 		Route::get('workforce', 'WorkforceController@index');
+
+		Route::get('agent-eval/{id}', 'AgentController@getData');
+
 		Route::post('changePassword', 'UserController@changePassword');
 	});
 	#End Administrator
