@@ -20,18 +20,15 @@ Route::group(['middleware' => 'web'], function () {
     	return view('main');
 	});
 
-	Route::get('access', function () {
-    	echo 'You have access!!!';
-	})->middleware('isAdmin');
-
 	Route::get('/home', 'HomeController@index');
-	
-	#Administrator	
+
+	#Administrator		
 	Route::group(array('prefix' => 'admin'), function() {
 		Route::group(array('prefix' => 'workforce'), function() {
 			Route::get('add', 'WorkforceController@insertForm');
 		 	Route::get('update/{id}', 'WorkforceController@updateForm');		 	
 		 	Route::get('insert', 'WorkforceController@insertForm');	
+
 		 	Route::post('addData', 'WorkforceController@insertData');
 		 	Route::post('updateData', 'WorkforceController@updateData');
 		 	Route::post('delete', 'WorkforceController@deleteData'); 		 	

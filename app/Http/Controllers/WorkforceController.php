@@ -77,6 +77,13 @@ class WorkforceController extends Controller
                     ->with('success', 'Successfully saved.');
     }
 
+    public function deleteData(Request $request) {
+        Workforce::deleteData($request->input('selected'));   
+
+        return redirect('admin/workforce')
+                    ->with('success', 'Successfully deleted.');
+    }
+
     private function generateCode($length = 8, $symbols = TRUE) {
         $alphabets_lowercase = range('a', 'z');
         $alphabets_uppercase = range('A', 'Z');

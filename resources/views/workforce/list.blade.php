@@ -106,7 +106,7 @@
   </div>
 <!--modal for delete -->
 <div id="deleteModal" style="overflow-y: hidden;"  class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  
-  <form>
+  <form id="wf-delete" method="POST" action="{{ url('admin/workforce/delete') }}">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h3 id="myModalLabel">Are you sure you want to delete?</h3>
@@ -120,8 +120,9 @@
       </div> <!-- /control-group -->
     </fieldset>
   </div>
-  <div class="modal-footer" style="margin-bottom: -16px; ">
-    <button class="btn btn-primary" id="btn-delete" type="submit">OK</button>
+  <div class="modal-footer" style="margin-bottom: -16px; "> 
+    <input name="_token" type="hidden" value="{{ csrf_token() }}">        
+    <input type="submit" class="btn btn-primary" id="btn-delete" value="OK">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
   </div>  
   </form>

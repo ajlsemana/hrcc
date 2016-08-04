@@ -19,7 +19,7 @@
 <div class="widget">
    <div class="widget-header">
       <i class="icon-group"></i>
-      <h3> Add New Workforce</h3>
+      <h3> Update Workforce</h3>
    </div>
    <div class="widget-content">
       <form method="POST" action="{{ url('admin/workforce/updateData') }}" accept-charset="UTF-8" class="form-horizontal" autocomplete="off" id="form-users" role="form">
@@ -106,7 +106,7 @@
                <div class="control-group">
                   <label class="control-label" for=""></label>
                   <div class="controls">
-                     <input name="_token" type="hidden" value="{{ csrf_token() }}">  
+                     <input name="_token" type="hidden" value="{{ csrf_token() }}">                      
                      {{ Form::hidden('id',  $data->id) }}      
                      <input type="submit" class="btn btn-primary" value="Save" name="submit">
                      <a class="btn" href="{{ url('admin/workforce') }}">Cancel</a>

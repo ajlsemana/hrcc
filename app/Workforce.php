@@ -39,4 +39,8 @@ class Workforce extends Model
 	            ->where('id', $id)
 	            ->update($data);
     }
+
+    public static function deleteData($data = array()) {
+		DB::table('users')->whereIn('id', $data)->delete();
+	}
 }
