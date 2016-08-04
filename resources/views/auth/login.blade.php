@@ -37,4 +37,7 @@
     </div> <!-- /content -->
     
 </div> <!-- /account-container -->
+<script>
+    document.getElementById('username').focus();
+</script>
 @endsection

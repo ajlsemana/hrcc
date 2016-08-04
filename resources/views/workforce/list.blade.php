@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="span12">
   <ol class="breadcrumb">
     <li class=""><a href="{{ url('/') }}">Home</a></li>
       <li class="active">Workforce</li>
@@ -105,7 +104,6 @@
       </div>
     </div>
   </div>
-</div>
 <!--modal for delete -->
 <div id="deleteModal" style="overflow-y: hidden;"  class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  
   <form>

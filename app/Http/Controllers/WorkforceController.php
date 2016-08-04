@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+
+//Call my VALIDATION Rules
+use App\Http\Requests\WorkforceRequest;
+
+//Call my MODEL function
 use App\Workforce as Workforce;
 
 class WorkforceController extends Controller
@@ -30,5 +35,14 @@ class WorkforceController extends Controller
 
     public function insertForm() {        
         return view('workforce.insert');
+    }
+
+    public function insertData(WorkforceRequest $request) {
+        $arrParam = array(
+                'first_name'    => $request->input('first_name')
+            );        
+        Workforce::insertData($arrParam);                 
+        return redirect('admin/workforce/add')
+                        ->with('success', 'Successfully saved.');
     }    
 }

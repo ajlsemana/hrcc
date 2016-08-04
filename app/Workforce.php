@@ -24,4 +24,8 @@ class Workforce extends Model
 		
 		return $query;
 	}
+
+	public static function insertData($data = array()) {
+		DB::table('users')->insert($data);		
+	}
 }

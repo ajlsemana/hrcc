@@ -71,9 +71,38 @@
       <div class="main">
         <div class="main-inner">
           <div class="container">
-            <div class="row">              
-                @yield('content')
-            </div>
+            <div class="row">  
+                <div class="span12">
+                  @if(Session::has('message'))
+                   <div class="alert alert-info">
+                      <button class="close" data-dismiss="alert" type="button">&times;</button>
+                      {{ Session::get('message') }}
+                   </div>
+                   @endif
+                   @if(Session::has('success'))
+                   <div class="alert alert-success">
+                      <button class="close" data-dismiss="alert" type="button">&times;</button>
+                      {{ Session::get('success') }}
+                   </div>
+                   @endif
+                   @if(Session::has('error'))
+                   <div class="alert alert-error">
+                      <button class="close" data-dismiss="alert" type="button">&times;</button>
+                      {{ Session::get('error') }}
+                   </div>
+                   @endif
+                  @if (count($errors) > 0)
+                      <div class="alert alert-danger">
+                          <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  @endif            
+                  @yield('content')
+                </div>
+              </div>
           </div>
         </div>
       </div>
