@@ -38,11 +38,47 @@ class WorkforceController extends Controller
     }
 
     public function insertData(WorkforceRequest $request) {
+        $plain_password = $this->generateCode(8);
+        $encrypted_password = bcrypt($plain_password);
+
         $arrParam = array(
-                'first_name'    => $request->input('first_name')
+                'username'      => $request->input('email'),
+                'password'      => $encrypted_password,
+                'first_name'    => $request->input('first_name'),
+                'last_name'     => $request->input('last_name'),
+                'email'         => $request->input('email'),
+                'gender'        => $request->input('gender'),
+                'role'          => $request->input('role'),
+                'contact_no'    => $request->input('contact_no'),
+                'birthdate'     => $request->input('birthdate'),
+                'joining_date'  => $request->input('joining_date'),
+                'user_type'     => $request->input('role')
             );        
-        Workforce::insertData($arrParam);                 
-        return redirect('admin/workforce/add')
-                        ->with('success', 'Successfully saved.');
-    }    
+        Workforce::insertData($arrParam);   
+
+        return redirect('admin/workforce')
+                    ->with('success', 'Successfully saved.');
+    } 
+
+    private function generateCode($length = 8, $symbols = TRUE) {
+        $alphabets_lowercase = range('a', 'z');
+        $alphabets_uppercase = range('A', 'Z');
+        $numbers = range('0', '9');
+
+        $additional_characters = array();
+        if ($symbols) {
+            $additional_characters = array('!','@','#','$','%','^','&','*','.');
+        }
+
+        $final_array = array_merge($alphabets_lowercase, $alphabets_uppercase, $numbers, $additional_characters);
+             
+        $code = '';
+      
+        while($length--) {
+          $key = array_rand($final_array);
+          $code .= $final_array[$key];
+        }
+      
+        return $code;
+    }   
 }

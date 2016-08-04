@@ -48,12 +48,12 @@
     <a href="#deleteModal" data-toggle="modal" class="btn btn-primary" id="confirmDelete">Delete Workforce</a>
   </div>
   <?php
-    $role = array(
-        1 => 'Agent',
-        2 => 'Supervisor',
-        3 => 'Manager',
-        4 => 'Quality Executive'
-      );
+    $role = array(         
+         2 => 'Supervisor',
+         3 => 'Manager',
+         4 => 'Quality Executive',
+         5 => 'Agent'         
+     );
   ?>  
   <div class="widget widget-nopad">
     <div class="widget-header"> <i class="icon-group"></i>

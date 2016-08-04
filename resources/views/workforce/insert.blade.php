@@ -8,10 +8,10 @@
 <?php
    $role = array(
        '' => '- Please Select -',
-       1 => 'Agent',
        2 => 'Supervisor',
        3 => 'Manager',
-       4 => 'Quality Executive'
+       4 => 'Quality Executive',
+       5 => 'Agent' 
      );
    ?>  
 <div class="widget">
@@ -26,7 +26,7 @@
          <div class="span7">
             <fieldset>
                <div class="control-group">
-                  <label class="control-label" for="first_name">First Name:</label>
+                  <label class="control-label" for="">First Name:</label>
                   <div class="controls">
                      <input maxlength="50" name="first_name" type="text" value="{{ old('first_name') }}">
                   </div>
@@ -34,7 +34,7 @@
                </div>
                <!-- /control-group -->        
                <div class="control-group">
-                  <label class="control-label" for="last_name">Last Name:</label>
+                  <label class="control-label" for="">Last Name:</label>
                   <div class="controls">
                      <input maxlength="50" name="last_name" type="text" value="{{ old('last_name') }}">
                   </div>
@@ -42,7 +42,7 @@
                </div>
                <!-- /control-group -->
                <div class="control-group">
-                  <label class="control-label" for="company">Role:</label>                    
+                  <label class="control-label" for="">Role:</label>                    
                   <div class="controls">
                       {{ Form::select('role', $role, old('role')) }}
                      
@@ -51,7 +51,7 @@
                </div>
                <!-- /form-group -->
                <div class="control-group">
-                  <label class="control-label" for="company">Gender:</label>                    
+                  <label class="control-label" for="">Gender:</label>                    
                   <div class="controls">
                      <input name="gender" type="radio" value="Male"> Male 
                      <input name="gender" type="radio" value="Female"> Female
@@ -60,7 +60,7 @@
                </div>
                <!-- /form-group -->
                <div class="control-group">
-                  <label class="control-label" for="email_address">Email Address:</label>
+                  <label class="control-label" for="">Email Address:</label>
                   <div class="controls">
                      <input name="email" type="text" >
                   </div>
@@ -68,25 +68,25 @@
                </div>
                <!-- /control-group -->
                <div class="control-group">
-                  <label class="control-label" for="email_address">Mobile No.:</label>
+                  <label class="control-label" for="">Mobile No.:</label>
                   <div class="controls">
-                     <input maxlength="15" name="mobile_no" type="text">
+                     <input maxlength="15" name="contact_no" type="text">
                   </div>
                   <!-- /controls -->       
                </div>
                <!-- /control-group -->
                <div class="control-group">
-                  <label class="control-label" for="email_address">Birthdate:</label>
+                  <label class="control-label" for="">Birthdate:</label>
                   <div class="controls">
-                     <input name="birthdate" type="date">
+                     <input name="birthdate" type="date" value="1950-01-01">
                   </div>
                   <!-- /controls -->       
                </div>
                <!-- /control-group -->
                <div class="control-group">
-                  <label class="control-label" for="email_address">Date of Joining:</label>
+                  <label class="control-label" for="">Date of Joining:</label>
                   <div class="controls">
-                     <input name="mobile_no" type="date">
+                     <input name="joining_date" type="date" value="{{ date('Y-m-d') }}">
                   </div>
                   <!-- /controls -->       
                </div>

@@ -9,7 +9,7 @@ class Workforce extends Model
 {
     public static function getList() {
 		$query = DB::table('users')
-			->where('user_type', '=', 3)
+			->where('user_type', '!=', 1)
 			->orderBy('first_name', 'ASC')
 			->get();
 		
@@ -18,14 +18,13 @@ class Workforce extends Model
 
 	public static function getListCtr() {
 		$query = DB::table('users')
-			->where('user_type', '=', 3)
-			->orderBy('first_name', 'ASC')
+			->where('user_type', '!=', 1)			
 			->count();
 		
 		return $query;
 	}
 
 	public static function insertData($data = array()) {
-		DB::table('users')->insert($data);		
+		DB::table('users')->insertGetId($data);		
 	}
 }
