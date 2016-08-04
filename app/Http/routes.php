@@ -19,7 +19,7 @@ Route::group(['middleware' => 'web'], function () {
     	}
     	return view('main');
 	});
-
+    
 	Route::get('/home', 'HomeController@index');
 
 	#Administrator		

@@ -27,7 +27,7 @@
                </a> 
                <div class="row">
                   <div class="span1">
-                     <img src="{!! asset('public/img/emaar.png') !!}" alt="emaar logo" width="50" height="50">
+                     <a href="{{ url('/') }}"><img src="{!! asset('public/img/emaar.png') !!}" alt="emaar logo" width="50" height="50"></a>
                   </div>
                   <div class="span11">
                      <div class="nav-collapse">
