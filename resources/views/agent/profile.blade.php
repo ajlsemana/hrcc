@@ -9,7 +9,8 @@
    text-align: center;
    font-size: 15px;
    color: #FFF;
-   background: #9FA7B4;    
+   background: #9FA7B4; 
+   text-transform: uppercase;   
    }
 </style>
 <a href="{{ url('admin/workforce') }}" class="btn" title="Back to List"><i class="icon-arrow-left"></i></a>
@@ -47,11 +48,11 @@
          <div class="widget-content">
             <table class="table" border="1" style="border: 1px solid #d1d1d1;">
                <tr class="tb-head">
-                  <th>Basic Skills</th>
-                  <th>Competency Skills</th>
-                  <th>Behavioural Skills</th>
-                  <th>Product Related Skills</th>
-                  <th>Advanced Skills</th>
+                  <th>Basic Skills / 10</th>
+                  <th>Competency Skills / 10</th>
+                  <th>Behavioural Skills / 10</th>
+                  <th>Product Related Skills / 10</th>
+                  <th>Advanced Skills / 10</th>
                </tr>
                <tr>
                   <td>

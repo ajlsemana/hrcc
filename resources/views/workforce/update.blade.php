@@ -90,7 +90,7 @@
                <div class="control-group">
                   <label class="control-label" for="">Birthdate:</label>
                   <div class="controls">
-                     <input name="birthdate" type="date" value="value="{{ $data->birthdate }}"">
+                     <input name="birthdate" type="date" value="{{ $data->birthdate }}">
                   </div>
                   <!-- /controls -->       
                </div>
