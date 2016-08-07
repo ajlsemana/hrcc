@@ -13,7 +13,7 @@ class AgentController extends Controller
     public function getData($id) {
         $this->data['data'] = Agent::getData($id);
 
-        return view('agent.list', $this->data);
+        return view('agent.profile', $this->data);
     }
 
 }
