@@ -37,6 +37,9 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('workforce', 'WorkforceController@index');
 
 		Route::get('agent-eval/{id}', 'AgentController@getData');
+		Route::group(array('prefix' => 'agent'), function() {
+			Route::post('updateData', 'AgentController@updateData'); 		 	
+		});
 
 		Route::post('changePassword', 'UserController@changePassword');
 	});
