@@ -106,7 +106,7 @@
                               <img src="{{ asset('public/img/skills/empathy.png') }}" class="img-responsive" width="35"> 
                               Empathy
                            </td>
-                           <td>
+                           <td align="right">
                               <font size="5">
                               <a href="#">0</a>
                               </font>
