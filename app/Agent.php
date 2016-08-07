@@ -8,7 +8,7 @@ class Agent extends Model
 {
     public static function getData($id) {
 		$query = DB::table('users')
-			->select(DB::raw('users.id as uid, users.first_name, users.last_name, skills.*'))
+			->select(DB::raw('users.id as uid, users.photo, users.first_name, users.last_name, skills.*'))
 			->join('skills', 'skills.uid', '=', 'users.id')
 			->where('users.id', '=', $id)
 			->first();
