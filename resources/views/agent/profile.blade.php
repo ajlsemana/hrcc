@@ -441,6 +441,16 @@
             </table>
          <br>
          <hr>
+         <div align="right" style="padding-right: 5px;">
+            View Report 
+            <select id="select-view">
+               <option value="all">All</option>
+               <option value="weekly">Weekly</option>
+               <option value="monthly">Monthly</option>
+               <option value="quarterly" selected>Quarterly</option>
+               <option value="yearly">Yearly</option>
+            </select>
+         </div>
          <div id="skill-container" style="background: #fff;  min-width: 640px; max-width: 640px; height: 400px; margin: 0 auto"></div>
          </div>
          <!-- /widget-content --> 
