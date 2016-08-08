@@ -10,11 +10,28 @@ use App\Http\Requests;
 use App\Agent as Agent;
 class AgentController extends Controller
 {
-    public function getData($id, $report, $skill_name, $date_joined) {
-        $this->data['data'] = Agent::getData($id);
-        $this->data['skills'] = Agent::getSkillRates($id, $report, $skill_name, $date_joined);
+    public function getData($id, $report, $skill_name, $date_joined) {    	
+        $this->data['data'] = Agent::getData($id);                
+        $data = $this->getSkillReport($id, $report, $skill_name, $date_joined);
+        $this->data['skills'] = $data;
 
         return view('agent.profile', $this->data);
+    }
+
+    public function getSkillReport($id, $report, $skill_name, $date_joined) {
+    	$data = array();       	
+
+    	if($report == 'yearly') {
+    		$now = date('Y');        	
+    		for($i = substr($date_joined, 0, 4); $i <= $now; $i++):    			
+    			$val = $i.substr($date_joined, 4);       		
+    			if(Agent::getSkillRates($id, $skill_name, $val)) {							
+    				$data[] = Agent::getSkillRates($id, $skill_name, $val);
+    			}
+    		endfor;   
+        }
+
+        return $data;    	
     }
 
     public function updateData(Request $request) {
@@ -55,7 +72,7 @@ class AgentController extends Controller
         Agent::updateData($request->input('id'), $arrParam);  
         Agent::insertData(array('uid' => $request->input('uid'),'skill_name' => $request->input('skill_name'), 'rate' => $rate)); 
 
-        return redirect('admin/agent-eval/'.$request->input('uid'))
+        return redirect('admin/agent-eval/'.$request->input('uid').'/yearly/'.$request->input('skill_name').'/'.$request->input('date_joined'))
                     ->with('success', 'Successfully saved.');
     }
 }

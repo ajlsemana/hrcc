@@ -16,15 +16,16 @@ class Agent extends Model
 		return $query;
 	}
 
-	public static function getSkillRates($id, $report = 'daily', $skillName = '', $date_joined) {
+	public static function getSkillRates($id, $skillName = '', $date) {		
 		$query = DB::table('users')
-			->select(DB::raw('users.id as uid, users.joining_date, skills_history.rate, skills_history.created_at AS cat'))
+			->select(DB::raw('skills_history.rate, SUBSTRING(skills_history.created_at, 1, 10) AS cat'))
 			->join('skills_history', 'skills_history.uid', '=', 'users.id')
 			->where('users.id', '=', $id)
-			->where('skills_history.skill_name', '=', $skillName)
+			->where('skills_history.skill_name', '=', $skillName)	
+			->where('skills_history.created_at', 'LIKE', $date.'%')			
 			->orderBy('skills_history.created_at', 'ASC')
-			->get();
-
+			->first();
+		
 		return $query;
 	}
 

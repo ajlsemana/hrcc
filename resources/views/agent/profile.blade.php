@@ -59,7 +59,7 @@
                      <table class="table">
                         <tr>
                            <td>
-                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/daily/telephonic">
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/yearly/telephonic/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/telephonic.png') }}" class="img-responsive" width="35"> 
                               Telephonic
                               </a>
@@ -139,7 +139,7 @@
                      <table class="table">
                         <tr>
                            <td>
-                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/daily/typing">
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/yearly/typing/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/typing.png') }}" class="img-responsive" width="35"> 
                               Typing
                               </a>
@@ -242,8 +242,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/yearly/handling_irate_customers/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/handling_irate_customers.png') }}" class="img-responsive" width="35"> 
                               Handling Irate Customers
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -451,15 +453,10 @@
                <option value="all">All</option>
                <option value="weekly">Weekly</option>
                <option value="monthly">Monthly</option>
-               <option value="quarterly" selected>Quarterly</option>
-               <option value="yearly">Yearly</option>
+               <option value="quarterly">Quarterly</option>
+               <option value="yearly" selected>Yearly</option>
             </select>
-         </div>
-         <?php            
-            foreach($skills as $skill) {
-                   
-            }
-         ?>
+         </div>     
          <div id="skill-container" style="background: #fff;  min-width: 640px; max-width: 640px; height: 400px; margin: 0 auto"></div>
          </div>
          <!-- /widget-content --> 
@@ -491,6 +488,7 @@
       {{ Form::hidden('_token', csrf_token()) }}
       {{ Form::hidden('id', $data->id ) }}
       {{ Form::hidden('uid', $data->uid ) }}
+      {{ Form::hidden('date_joined', $data->joining_date ) }}
       <input type="submit" class="btn btn-primary" value="Save">     
       <button data-dismiss="modal" aria-hidden="true" class="btn">Cancel</button>
     </center>
@@ -533,20 +531,16 @@
             type: 'column'
         },
         title: {
-            text: 'Handling Irate Customers'
+            text: '{{ ucwords(str_replace('_', ' ', Request::segment(5))) }}'
         },
         subtitle: {
             //text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
         },
         xAxis: {
-            type: 'category',
-            labels: {
-                rotation: -45,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
-                }
-            }
+            type: 'datetime',
+            dateTimeLabelFormats: {
+                day: '%e of %b'
+            }                             
         },
         yAxis: {
             min: 0,
@@ -563,16 +557,20 @@
         series: [{
             name: 'Population',
             data: [
-                ['1st Quarter', 3.50],
-                ['2nd Quarter', 5.23],
-                ['3rd Quarter', 9.00],
-                ['4th Quarter', 0]                
+               <?php
+                  $seriesData = array();
+                  foreach($skills as $skill) {
+                     $date = explode('-', $skill->cat);
+                     $newDate = 'Date.UTC('.$date[0].',  '.$date[1].', '.$date[2].')';                            
+                     $seriesData[] = '['.$newDate.', '.$skill->rate.']';
+                  }
+               ?>
+               {{ implode(', ', $seriesData) }}                        
             ],
+                pointStart: Date.UTC(2010, 0, 1),
+                pointInterval: 24 * 3600 * 1000, // one day
             dataLabels: {
-                enabled: true,
-                rotation: -90,
-                color: '#FFFFFF',
-                align: 'right',
+                enabled: true,                                
                 format: '{point.y:.1f}', // one decimal
                 y: 10, // 10 pixels down from the top
                 style: {
