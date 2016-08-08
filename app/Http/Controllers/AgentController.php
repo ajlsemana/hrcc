@@ -10,8 +10,9 @@ use App\Http\Requests;
 use App\Agent as Agent;
 class AgentController extends Controller
 {
-    public function getData($id) {
+    public function getData($id, $report, $skill_name, $date_joined) {
         $this->data['data'] = Agent::getData($id);
+        $this->data['skills'] = Agent::getSkillRates($id, $report, $skill_name, $date_joined);
 
         return view('agent.profile', $this->data);
     }
@@ -52,7 +53,7 @@ class AgentController extends Controller
 		$arrParam = array($request->input('skill_name') => $rate);
 
         Agent::updateData($request->input('id'), $arrParam);  
-        Agent::insertData(array('uid' => $request->input('uid'),'rate' => $rate)); 
+        Agent::insertData(array('uid' => $request->input('uid'),'skill_name' => $request->input('skill_name'), 'rate' => $rate)); 
 
         return redirect('admin/agent-eval/'.$request->input('uid'))
                     ->with('success', 'Successfully saved.');

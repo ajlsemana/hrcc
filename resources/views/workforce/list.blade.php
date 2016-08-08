@@ -87,7 +87,10 @@
                       <img src="{!! asset('public/profile_picture/no-photo.jpg') !!}" class="img-responsive" alt="emaar logo" width="40">
                     @endif
                   </td>
-                  <td><a href="{{ url('admin/agent-eval/'.$workforce->id) }}">{{ $workforce->first_name.' '.$workforce->last_name }}</a></td>
+                  <?php
+                    $url = 'admin/agent-eval/'.$workforce->id.'/daily/typing/'.substr($workforce->joining_date, 0, 4);                    
+                  ?>
+                  <td><a href="{{ url($url) }}">{{ $workforce->first_name.' '.$workforce->last_name }}</a></td>
                   <td>{{ $workforce->email }}</td>
                   <td>{{ $role[$workforce->role] }}</td>
                   <td>{{ $workforce->gender }}</td>

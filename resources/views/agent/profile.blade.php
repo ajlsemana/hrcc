@@ -59,11 +59,13 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/daily/telephonic">
                               <img src="{{ asset('public/img/skills/telephonic.png') }}" class="img-responsive" width="35"> 
                               Telephonic
+                              </a>
                            </td>
                            <td>
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-telephonic">{{ $data->telephonic }}</a>
                               </font>
                            </td>
@@ -78,7 +80,7 @@
                               Effective Communication
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-effective_communication">{{ $data->effective_communication }}</a>
                               </font>
                            </td>
@@ -93,7 +95,7 @@
                               Conflict Resolution
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-conflict_resolution">{{ $data->conflict_resolution }}</a>
                               </font>
                            </td>
@@ -108,7 +110,7 @@
                               Empathy
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-empathy">{{ $data->empathy }}</a>
                               </font>
                            </td>
@@ -123,7 +125,7 @@
                               Softwares Exposure
                            </td>
                            <td>
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-software_exposure">{{ $data->software_exposure }}</a>
                               </font>
                            </td>
@@ -137,11 +139,13 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/daily/typing">
                               <img src="{{ asset('public/img/skills/typing.png') }}" class="img-responsive" width="35"> 
                               Typing
+                              </a>
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-typing">{{ $data->typing }}</a>
                               </font>
                            </td>
@@ -156,7 +160,7 @@
                               Attentive Listening
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-attentive_listening">{{ $data->attentive_listening }}</a>
                               </font>
                            </td>
@@ -171,7 +175,7 @@
                               Decision Making
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-decision_making">{{ $data->decision_making }}</a>
                               </font>
                            </td>
@@ -186,7 +190,7 @@
                               Quick Learner
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-quick_learner">{{ $data->quick_learner }}</a>
                               </font>
                            </td>
@@ -201,7 +205,7 @@
                               Knowledge Retention
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-knowledge_retention">{{ $data->knowledge_retention }}</a>
                               </font>
                            </td>
@@ -227,7 +231,7 @@
                               Time Management
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-time_management">{{ $data->time_management }}</a>
                               </font>
                            </td>
@@ -242,7 +246,7 @@
                               Handling Irate Customers
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-handling_irate_customers">{{ $data->handling_irate_customers }}</a>
                               </font>
                            </td>
@@ -257,7 +261,7 @@
                               Flexible
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-flexible">{{ $data->flexible }}</a>
                               </font>
                            </td>
@@ -291,7 +295,7 @@
                               Multilingual
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-multilingual">{{ $data->multilingual }}</a>
                               </font>
                            </td>
@@ -306,7 +310,7 @@
                               Rapport Building
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-rapport_building">{{ $data->rapport_building }}</a>
                               </font>
                            </td>
@@ -321,7 +325,7 @@
                               Creativity
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-creativity">{{ $data->creativity }}</a>
                               </font>
                            </td>
@@ -363,7 +367,7 @@
                               Persuasion
                            </td>
                            <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-persuasion">{{ $data->persuasion }}</a>
                               </font>
                            </td>
@@ -413,7 +417,7 @@
                               Adaptability
                            </td>
                             <td align="right">
-                              <font size="3">
+                              <font size="2">
                               <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-adaptability">{{ $data->adaptability }}</a>
                               </font>
                            </td>
@@ -442,8 +446,8 @@
          <br>
          <hr>
          <div align="right" style="padding-right: 5px;">
-            View Report 
-            <select id="select-view">
+            <b>View Report</b> 
+            <select id="select-report">
                <option value="all">All</option>
                <option value="weekly">Weekly</option>
                <option value="monthly">Monthly</option>
@@ -451,6 +455,11 @@
                <option value="yearly">Yearly</option>
             </select>
          </div>
+         <?php            
+            foreach($skills as $skill) {
+                   
+            }
+         ?>
          <div id="skill-container" style="background: #fff;  min-width: 640px; max-width: 640px; height: 400px; margin: 0 auto"></div>
          </div>
          <!-- /widget-content --> 
@@ -465,18 +474,20 @@
    </div>
    <div class="modal-body" id="skillDataBody">
       <b>How many evaluator?</b>
-      <select id="num_eval" style="width: 50px;">
-         <option value="">--</option>
-         @for($i=1; $i <= 10; $i++)
+      <select id="num_eval" style="width: 50px;">         
+         @for($i=1; $i <= 3; ++$i)
             <option value="{{ $i }}">{{ $i }}</option>
          @endfor
       </select>
       <br>
-      <span id="scoresheets"></span>
+      <span id="scoresheets">
+         <b>Evaluator</b> 
+         <input type="number" min="0" max="10" name="evaluator[]" value="0" style="width: 40px;">
+      </span>
    </div>
    <div class="modal-footer">
     <center>          
-      <input type="hidden" id="h-skill-name" name="skill_name" value="">
+      <input type="hidden" id="h-skill-name" name="skill_name" value="">      
       {{ Form::hidden('_token', csrf_token()) }}
       {{ Form::hidden('id', $data->id ) }}
       {{ Form::hidden('uid', $data->uid ) }}
@@ -489,6 +500,10 @@
 <script type="text/javascript" src="{!! asset('public/js/highcharts/highcharts-more.js') !!}"></script>  
 <script type="text/javascript" src="{!! asset('public/js/highcharts/exporting.js') !!}"></script>  
 <script>
+   $('#select-report').change(function() {
+
+   });
+
    $('.a-skill').click(function(e) {
       e.preventDefault();
 
