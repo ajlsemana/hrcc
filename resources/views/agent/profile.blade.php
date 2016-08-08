@@ -499,7 +499,10 @@
 <script type="text/javascript" src="{!! asset('public/js/highcharts/exporting.js') !!}"></script>  
 <script>
    $('#select-report').change(function() {
-
+      var val = $(this).val();
+      var url = '{{ url("admin/agent-eval") }}/{{ $data->uid }}/'+val+'/{{ Request::segment(5) }}/{{ $data->joining_date }}';
+      
+      window.location.href = url;
    });
 
    $('.a-skill').click(function(e) {

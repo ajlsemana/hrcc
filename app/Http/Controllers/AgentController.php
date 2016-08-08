@@ -25,13 +25,42 @@ class AgentController extends Controller
     		$now = date('Y');        	
     		for($i = substr($date_joined, 0, 4); $i <= $now; $i++):    			
     			$val = $i.substr($date_joined, 4);       		
-    			if(Agent::getSkillRates($id, $skill_name, $val)) {							
-    				$data[] = Agent::getSkillRates($id, $skill_name, $val);
+    			$result = Agent::getSkillRates($id, $skill_name, $val, 'yearly');
+    			if($result) {							
+    				$data[] = $result;
     			}
     		endfor;   
+        } elseif($report == 'quarterly') {
+        	#$now = date('Y-m-d');        	
+    	  	$now = date('Y').substr($date_joined, 4);	
+    	  	$arrDate = array();
+    	  	$allDates = '';
+			$allDates = $this->computeDate($date_joined, $now, '90 days');
+			$temp = '';
+
+			if($temp != $now) {
+				$temp = $this->computeDate($temp, $now, '90 days');
+				$allDates .= $this->computeDate($allDates, $now, '90 days');
+			}
+
+			echo $allDates;
+			/*$result = Agent::getSkillRates($id, $skill_name, $val, 'quarterly');
+			$val = $i.substr($date_joined, 4); 
+			if($result) {							
+				$data[] = $result;
+			}*/
+           	
         }
 
         return $data;    	
+    }
+
+    public function computeDate($start_date, $end_date, $days) {
+    	$date = date_create($start_date);
+        date_add($date, date_interval_create_from_date_string($days));
+        $dateNow = date_format($date, 'Y-m-d');
+
+        return $dateNow;   		
     }
 
     public function updateData(Request $request) {
