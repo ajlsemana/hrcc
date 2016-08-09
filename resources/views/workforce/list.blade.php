@@ -88,7 +88,7 @@
                     @endif
                   </td>
                   <?php
-                    $url = 'admin/agent-eval/'.$workforce->id.'/yearly/typing/'.$workforce->joining_date;                    
+                    $url = 'admin/agent-eval/'.$workforce->id.'/all/telephonic/'.$workforce->joining_date;                    
                   ?>
                   <td><a href="{{ url($url) }}">{{ $workforce->first_name.' '.$workforce->last_name }}</a></td>
                   <td>{{ $workforce->email }}</td>
