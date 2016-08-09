@@ -61,7 +61,7 @@ class AgentController extends Controller
             $count = count($this->globalData['dates']); 
             $this->globalData['dates'][$count] = $now;
             $result = Agent::getSkillRates($id, $skill_name, $this->globalData['dates'], 'weekly');
-
+           
             if($result) {
                 $data = $result;
             }
