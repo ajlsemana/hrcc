@@ -457,7 +457,7 @@
                <option value="yearly" @if(Request::segment(4) == 'yearly') selected @endif>Yearly</option>
             </select>
          </div>     
-         <div id="skill-container" style="background: #fff;  min-width: 640px; max-width: 640px; height: 400px; margin: 0 auto"></div>
+         <div id="skill-container" style="background: #fff;  min-width: 900px; max-width: 900px; height: 400px; margin: 0 auto"></div>
          </div>
          <!-- /widget-content --> 
       </div>
