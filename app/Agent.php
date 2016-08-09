@@ -24,13 +24,13 @@ class Agent extends Model
 			->where('users.id', '=', $id)
 			->where('skills_history.skill_name', '=', $skillName);
 
-		
+		$result = $query->get();
 		if($report == 'yearly') {				
 			$query->where('skills_history.created_at', 'LIKE', $date.'%');						
 			$query->orderBy('skills_history.created_at', 'ASC');
 
 			$result = $query->first();
-		} elseif($report == 'quarterly') {					
+		} elseif($report == 'quarterly' OR $report == 'monthly' OR $report == 'weekly') {					
 			$query->whereIn('skills_history.date_added', $date);
 
 			$result = $query->get();						

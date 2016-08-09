@@ -33,8 +33,7 @@ class AgentController extends Controller
     			}
     		endfor;               
         } elseif($report == 'quarterly') {        	
-    	  	$now = date('Y').substr($date_joined, 4);	
-    	  	$arrDate = array();  
+    	  	$now = date('Y').substr($date_joined, 4);	    	  	
             $this->globalData['dates'][0] = $date_joined;
 			$dates = $this->computeDate($date_joined, $now, '3 months');
             $count = count($this->globalData['dates']);	
@@ -44,6 +43,28 @@ class AgentController extends Controller
             if($result) {
                 $data = $result;
             }
+        } elseif($report == 'monthly') {            
+            $now = date('Y').substr($date_joined, 4);               
+            $this->globalData['dates'][0] = $date_joined;
+            $dates = $this->computeDate($date_joined, $now, '1 months');
+            $count = count($this->globalData['dates']); 
+            $this->globalData['dates'][$count] = $now;
+            $result = Agent::getSkillRates($id, $skill_name, $this->globalData['dates'], 'monthly');
+
+            if($result) {
+                $data = $result;
+            }
+        } elseif($report == 'weekly') {            
+            $now = date('Y').substr($date_joined, 4);               
+            $this->globalData['dates'][0] = $date_joined;
+            #$dates = $this->computeDate($date_joined, $now, '7 days');
+            /*$count = count($this->globalData['dates']); 
+            $this->globalData['dates'][$count] = $now;
+            $result = Agent::getSkillRates($id, $skill_name, $this->globalData['dates'], 'weekly');
+
+            if($result) {
+                $data = $result;
+            }*/
         }
 
         return $data;    	
@@ -52,12 +73,11 @@ class AgentController extends Controller
     public function computeDate($start_date, $end_date, $days_months) {             	
         $date = date_create($start_date);
         date_add($date, date_interval_create_from_date_string($days_months));
-        $start_date = date_format($date, 'Y-m-d');
-        $temp = '';
+        $start_date = date_format($date, 'Y-m-d');        
                 
         if($start_date != $end_date) {
             $this->globalData['dates'][] = $start_date;
-            return  $this->computeDate($start_date, $end_date, '3 months');
+            return  $this->computeDate($start_date, $end_date, $days_months);
         } 
     }
 
