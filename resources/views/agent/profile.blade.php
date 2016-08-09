@@ -456,6 +456,20 @@
                <option value="quarterly" @if(Request::segment(4) == 'quarterly') selected @endif>Quarterly</option>
                <option value="yearly" @if(Request::segment(4) == 'yearly') selected @endif>Yearly</option>
             </select>
+            <br>
+            <?php
+               $chart = 'column';
+               if(isset($_GET['chart'])) {                                    
+                  if($_GET['chart'] == 'line') {
+                     $chart = 'line';
+                  } elseif($_GET['chart'] == 'area') {
+                     $chart = 'area';
+                  }
+               }
+            ?>
+            <button class="select-chart btn @if($chart == 'line') btn-primary @else btn-invert @endif" id="line">Line</button>
+            <button class="select-chart btn @if($chart == 'area') btn-primary @else btn-invert @endif" id="area">Area</button>
+            <button class="select-chart btn @if(!isset($_GET['chart']) OR $chart == 'column') btn-primary @else btn-invert @endif" id="column">Column</button>
          </div>     
          <div id="skill-container" style="background: #fff;  min-width: 99%; max-width: 99%; height: 400px; margin: 0 auto"></div>
          </div>
@@ -505,6 +519,14 @@
       window.location.href = url;
    });
 
+   $('.select-chart').click(function(e) {
+      e.preventDefault();
+      var val = $(this).attr('id');
+      var url = '{{ url("admin/agent-eval") }}/{{ $data->uid }}/{{ Request::segment(4) }}/{{ Request::segment(5) }}/{{ $data->joining_date }}?chart='+val+'#reports';
+      
+      window.location.href = url;
+   });
+
    $('.a-skill').click(function(e) {
       e.preventDefault();
 
@@ -531,7 +553,7 @@
    $(function () {
     $('#skill-container').highcharts({
         chart: {
-            type: 'column'
+            type: '{{ $chart }}'
         },
         title: {
             text: '{{ ucwords(str_replace('_', ' ', Request::segment(5))) }}'
@@ -552,13 +574,13 @@
             }
         },
         legend: {
-            enabled: false
+            enabled: true
         },
         tooltip: {
             pointFormat: '<b>{point.y:.1f} rate</b>'
         },
         series: [{
-            name: 'Population',
+            name: 'Scores',
             data: [
                @if($skills)
                <?php                  
