@@ -9,7 +9,9 @@ use App\Http\Requests;
 //Call my MODEL function
 use App\Agent as Agent;
 class AgentController extends Controller
-{
+{   
+    private $globalData = array();
+
     public function getData($id, $report, $skill_name, $date_joined) {    	
         $this->data['data'] = Agent::getData($id);                
         $data = $this->getSkillReport($id, $report, $skill_name, $date_joined);
@@ -21,46 +23,42 @@ class AgentController extends Controller
     public function getSkillReport($id, $report, $skill_name, $date_joined) {
     	$data = array();       	
 
-    	if($report == 'yearly') {
+    	if($report == 'yearly') {            
     		$now = date('Y');        	
-    		for($i = substr($date_joined, 0, 4); $i <= $now; $i++):    			
-    			$val = $i.substr($date_joined, 4);       		
-    			$result = Agent::getSkillRates($id, $skill_name, $val, 'yearly');
-    			if($result) {							
+    		for($i = substr($date_joined, 0, 4); $i <= $now; $i++):    
+                $val = $i.substr($date_joined, 4);                        
+                $result = Agent::getSkillRates($id, $skill_name, $val, 'yearly');
+                if($result) {
     				$data[] = $result;
     			}
-    		endfor;   
-        } elseif($report == 'quarterly') {
-        	#$now = date('Y-m-d');        	
+    		endfor;               
+        } elseif($report == 'quarterly') {        	
     	  	$now = date('Y').substr($date_joined, 4);	
-    	  	$arrDate = array();
-    	  	$allDates = '';
-			$allDates = $this->computeDate($date_joined, $now, '90 days');
-			$temp = '';
+    	  	$arrDate = array();  
+            $this->globalData['dates'][0] = $date_joined;
+			$dates = $this->computeDate($date_joined, $now, '3 months');
+            $count = count($this->globalData['dates']);	
+            $this->globalData['dates'][$count] = $now;
+            $result = Agent::getSkillRates($id, $skill_name, $this->globalData['dates'], 'quarterly');
 
-			if($temp != $now) {
-				$temp = $this->computeDate($temp, $now, '90 days');
-				$allDates .= $this->computeDate($allDates, $now, '90 days');
-			}
-
-			echo $allDates;
-			/*$result = Agent::getSkillRates($id, $skill_name, $val, 'quarterly');
-			$val = $i.substr($date_joined, 4); 
-			if($result) {							
-				$data[] = $result;
-			}*/
-           	
+            if($result) {
+                $data = $result;
+            }
         }
 
         return $data;    	
     }
 
-    public function computeDate($start_date, $end_date, $days) {
-    	$date = date_create($start_date);
-        date_add($date, date_interval_create_from_date_string($days));
-        $dateNow = date_format($date, 'Y-m-d');
-
-        return $dateNow;   		
+    public function computeDate($start_date, $end_date, $days_months) {             	
+        $date = date_create($start_date);
+        date_add($date, date_interval_create_from_date_string($days_months));
+        $start_date = date_format($date, 'Y-m-d');
+        $temp = '';
+                
+        if($start_date != $end_date) {
+            $this->globalData['dates'][] = $start_date;
+            return  $this->computeDate($start_date, $end_date, '3 months');
+        } 
     }
 
     public function updateData(Request $request) {

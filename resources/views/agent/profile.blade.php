@@ -448,13 +448,13 @@
          <br>
          <hr>
          <div align="right" style="padding-right: 5px;">
-            <b>View Report</b> 
+            <b>View Report</b>             
             <select id="select-report">
-               <option value="all">All</option>
-               <option value="weekly">Weekly</option>
-               <option value="monthly">Monthly</option>
-               <option value="quarterly">Quarterly</option>
-               <option value="yearly" selected>Yearly</option>
+               <option value="all" @if(Request::segment(4) == 'all') selected @endif>All</option>
+               <option value="weekly" @if(Request::segment(4) == 'weekly') selected @endif>Weekly</option>
+               <option value="monthly" @if(Request::segment(4) == 'monthly') selected @endif>Monthly</option>
+               <option value="quarterly" @if(Request::segment(4) == 'quarterly') selected @endif>Quarterly</option>
+               <option value="yearly" @if(Request::segment(4) == 'yearly') selected @endif>Yearly</option>
             </select>
          </div>     
          <div id="skill-container" style="background: #fff;  min-width: 640px; max-width: 640px; height: 400px; margin: 0 auto"></div>
@@ -540,7 +540,12 @@
             //text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
         },
         xAxis: {
+            <?php
+               $date_joined = explode('-', Request::segment(6));
+               $min_date = 'Date.UTC('.$date_joined[0].', '.$date_joined[1].', '.$date_joined[2].')';
+            ?>
             type: 'datetime',
+            min: {{ $min_date }},                   
             dateTimeLabelFormats: {
                 day: '%e of %b'
             }                             
@@ -560,18 +565,24 @@
         series: [{
             name: 'Population',
             data: [
-               <?php
+               @if($skills)
+               <?php                  
                   $seriesData = array();
+                  $arrDate = array(
+                     '01' => 0, '02' => 1, '03' => 2, '04' => 3,
+                     '05' => 4, '06' => 5, '07' => 6, '08' => 7,
+                     '09' => 8, '10' => 9, '11' => 10, '12' => 11
+                  );
                   foreach($skills as $skill) {
                      $date = explode('-', $skill->cat);
-                     $newDate = 'Date.UTC('.$date[0].',  '.$date[1].', '.$date[2].')';                            
+                     $newDate = 'Date.UTC('.$date[0].',  '.$arrDate[$date[1]].', '.$date[2].')';                            
                      $seriesData[] = '['.$newDate.', '.$skill->rate.']';
                   }
-               ?>
-               {{ implode(', ', $seriesData) }}                        
+
+                  echo implode(', ', $seriesData);
+               ?>                     
+               @endif            
             ],
-                pointStart: Date.UTC(2010, 0, 1),
-                pointInterval: 24 * 3600 * 1000, // one day
             dataLabels: {
                 enabled: true,                                
                 format: '{point.y:.1f}', // one decimal
