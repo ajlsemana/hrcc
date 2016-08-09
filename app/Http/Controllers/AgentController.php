@@ -21,7 +21,7 @@ class AgentController extends Controller
     }
 
     public function getSkillReport($id, $report, $skill_name, $date_joined) {
-    	$data = array();       	
+    	$data = NULL;       	
 
     	if($report == 'yearly') {            
     		$now = date('Y');        	
@@ -57,18 +57,35 @@ class AgentController extends Controller
         } elseif($report == 'weekly') {            
             $now = date('Y').substr($date_joined, 4);               
             $this->globalData['dates'][0] = $date_joined;
-            #$dates = $this->computeDate($date_joined, $now, '7 days');
-            /*$count = count($this->globalData['dates']); 
+            $dates = $this->computeWeekly($date_joined, $now);
+            $count = count($this->globalData['dates']); 
             $this->globalData['dates'][$count] = $now;
             $result = Agent::getSkillRates($id, $skill_name, $this->globalData['dates'], 'weekly');
 
             if($result) {
                 $data = $result;
-            }*/
+            }
+        } elseif($report == 'all') {            
+            $result = Agent::getSkillRates($id, $skill_name, NULL, 'all');
+         
+            if($result) {
+                $data = $result;
+            }
         }
 
         return $data;    	
     }
+
+    public function computeWeekly($start_date, $end_date) {                 
+        $date = strtotime($start_date);
+        $date = strtotime("+1 week", $date);
+        $date = date('Y-m-d', $date);
+        
+        if(strtotime($date) <= strtotime($end_date)) {            
+           $this->globalData['dates'][] = $date;
+           return  $this->computeWeekly($date, $end_date);
+        } 
+    }   
 
     public function computeDate($start_date, $end_date, $days_months) {             	
         $date = date_create($start_date);
@@ -79,7 +96,7 @@ class AgentController extends Controller
             $this->globalData['dates'][] = $start_date;
             return  $this->computeDate($start_date, $end_date, $days_months);
         } 
-    }
+    }    
 
     public function updateData(Request $request) {
     	/*
@@ -117,9 +134,9 @@ class AgentController extends Controller
 		$arrParam = array($request->input('skill_name') => $rate);
 
         Agent::updateData($request->input('id'), $arrParam);  
-        Agent::insertData(array('uid' => $request->input('uid'),'skill_name' => $request->input('skill_name'), 'rate' => $rate)); 
+        Agent::insertData(array('uid' => $request->input('uid'),'skill_name' => $request->input('skill_name'), 'rate' => $rate, 'date_added' => date('Y-m-d'))); 
 
-        return redirect('admin/agent-eval/'.$request->input('uid').'/yearly/'.$request->input('skill_name').'/'.$request->input('date_joined'))
+        return redirect('admin/agent-eval/'.$request->input('uid').'/all/'.$request->input('skill_name').'/'.$request->input('date_joined'))
                     ->with('success', 'Successfully saved.');
     }
 }

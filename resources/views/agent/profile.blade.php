@@ -59,7 +59,7 @@
                      <table class="table">
                         <tr>
                            <td>
-                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/yearly/telephonic/{{ $data->joining_date }}">
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/telephonic/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/telephonic.png') }}" class="img-responsive" width="35"> 
                               Telephonic
                               </a>
@@ -139,7 +139,7 @@
                      <table class="table">
                         <tr>
                            <td>
-                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/yearly/typing/{{ $data->joining_date }}">
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/typing/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/typing.png') }}" class="img-responsive" width="35"> 
                               Typing
                               </a>
@@ -242,7 +242,7 @@
                      <table class="table">
                         <tr>
                            <td>
-                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/yearly/handling_irate_customers/{{ $data->joining_date }}">
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/handling_irate_customers/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/handling_irate_customers.png') }}" class="img-responsive" width="35"> 
                               Handling Irate Customers
                               </a>

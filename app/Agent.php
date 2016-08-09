@@ -23,8 +23,7 @@ class Agent extends Model
 			->join('users', 'skills_history.uid', '=', 'users.id')
 			->where('users.id', '=', $id)
 			->where('skills_history.skill_name', '=', $skillName);
-
-		$result = $query->get();
+		
 		if($report == 'yearly') {				
 			$query->where('skills_history.created_at', 'LIKE', $date.'%');						
 			$query->orderBy('skills_history.created_at', 'ASC');
@@ -34,7 +33,10 @@ class Agent extends Model
 			$query->whereIn('skills_history.date_added', $date);
 
 			$result = $query->get();						
+		} elseif($report == 'all') {	
+			$result = $query->get();
 		}
+
 		$query->orderBy('skills_history.created_at', 'ASC');
 
 		return $result;
