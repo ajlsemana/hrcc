@@ -457,7 +457,7 @@
                <option value="yearly" @if(Request::segment(4) == 'yearly') selected @endif>Yearly</option>
             </select>
          </div>     
-         <div id="skill-container" style="background: #fff;  min-width: 900px; max-width: 900px; height: 400px; margin: 0 auto"></div>
+         <div id="skill-container" style="background: #fff;  min-width: 99%; max-width: 99%; height: 400px; margin: 0 auto"></div>
          </div>
          <!-- /widget-content --> 
       </div>
@@ -540,12 +540,7 @@
             //text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
         },
         xAxis: {
-            <?php
-               $date_joined = explode('-', Request::segment(6));
-               $min_date = 'Date.UTC('.$date_joined[0].', '.$date_joined[1].', '.$date_joined[2].')';
-            ?>
-            type: 'datetime',
-            min: {{ $min_date }},                   
+            type: 'datetime',                           
             dateTimeLabelFormats: {
                 day: '%e of %b'
             }                             

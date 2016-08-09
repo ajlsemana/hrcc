@@ -19,25 +19,27 @@ class Agent extends Model
 	public static function getSkillRates($id, $skillName = '', $date, $report = 'yearly') {		
 		$result = FALSE;
 		$query = DB::table('skills_history')
-			->select(DB::raw('skills_history.rate, SUBSTRING(skills_history.created_at, 1, 10) AS cat'))
+			->select(DB::raw('skills_history.rate, skills_history.date_added AS cat'))
 			->join('users', 'skills_history.uid', '=', 'users.id')
 			->where('users.id', '=', $id)
 			->where('skills_history.skill_name', '=', $skillName);
 		
 		if($report == 'yearly') {				
 			$query->where('skills_history.created_at', 'LIKE', $date.'%');						
-			$query->orderBy('skills_history.created_at', 'ASC');
+			$query->orderBy('skills_history.date_added', 'ASC');
 
 			$result = $query->first();
 		} elseif($report == 'quarterly' OR $report == 'monthly' OR $report == 'weekly') {					
 			$query->whereIn('skills_history.date_added', $date);
+			$query->orderBy('skills_history.date_added', 'ASC');
 
 			$result = $query->get();						
 		} elseif($report == 'all') {	
+			$query->orderBy('skills_history.date_added', 'ASC');
+			
 			$result = $query->get();
 		}
 
-		$query->orderBy('skills_history.created_at', 'ASC');
 
 		return $result;
 	}
