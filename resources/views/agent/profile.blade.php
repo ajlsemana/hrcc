@@ -467,9 +467,9 @@
                   }
                }
             ?>
+            <button class="select-chart btn @if(!isset($_GET['chart']) OR $chart == 'column') btn-primary @else btn-invert @endif" id="column">Column</button>
             <button class="select-chart btn @if($chart == 'line') btn-primary @else btn-invert @endif" id="line">Line</button>
             <button class="select-chart btn @if($chart == 'area') btn-primary @else btn-invert @endif" id="area">Area</button>
-            <button class="select-chart btn @if(!isset($_GET['chart']) OR $chart == 'column') btn-primary @else btn-invert @endif" id="column">Column</button>
          </div>     
          <div id="skill-container" style="background: #fff;  min-width: 99%; max-width: 99%; height: 400px; margin: 0 auto"></div>
          </div>
