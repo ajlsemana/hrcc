@@ -447,7 +447,7 @@
             </table>
          <br>
          <hr>
-         <div align="right" style="padding-right: 5px;">
+         <div align="right" style="padding-right: 5px;" id="reports">
             <b>View Report</b>             
             <select id="select-report">
                <option value="all" @if(Request::segment(4) == 'all') selected @endif>All</option>
@@ -500,7 +500,7 @@
 <script>
    $('#select-report').change(function() {
       var val = $(this).val();
-      var url = '{{ url("admin/agent-eval") }}/{{ $data->uid }}/'+val+'/{{ Request::segment(5) }}/{{ $data->joining_date }}';
+      var url = '{{ url("admin/agent-eval") }}/{{ $data->uid }}/'+val+'/{{ Request::segment(5) }}/{{ $data->joining_date }}#reports';
       
       window.location.href = url;
    });
