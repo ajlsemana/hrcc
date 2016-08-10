@@ -593,7 +593,7 @@
                   foreach($skills as $skill) {
                      $date = explode('-', $skill->cat);
                      $newDate = 'Date.UTC('.$date[0].',  '.$arrDate[$date[1]].', '.$date[2].')';                            
-                     $seriesData[] = '['.$newDate.', '.$skill->rate.']';
+                     $seriesData[] = '['.$newDate.', '.round($skill->rate).']';
                   }
 
                   echo implode(', ', $seriesData);
@@ -601,11 +601,10 @@
                @endif            
             ],
             dataLabels: {
-                enabled: true,                                
-                format: '{point.y:.1f}', // one decimal
-                y: 10, // 10 pixels down from the top
+                enabled: true,                                                
+                y: 7, // 10 pixels down from the top
                 style: {
-                    fontSize: '13px',
+                    fontSize: '12px',
                     fontFamily: 'Verdana, sans-serif'
                 }
             }
