@@ -571,7 +571,10 @@
             min: 0,
             title: {
                 text: 'Rate 0-10'
-            }
+            },
+            min: 0,
+            max: 10,
+            categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         },
         legend: {
             enabled: true
