@@ -577,7 +577,7 @@
             enabled: true
         },
         tooltip: {
-            pointFormat: '<b>{point.y:.1f} rate</b>'
+            //pointFormat: '<b>{point.y:} rate</b>'
         },
         series: [{
             name: 'Scores',
