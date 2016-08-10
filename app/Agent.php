@@ -36,7 +36,7 @@ class Agent extends Model
 			$result = $query->get();						
 		} elseif($report == 'all') {	
 			$query->orderBy('skills_history.date_added', 'ASC');
-			
+
 			$result = $query->get();
 		}
 
