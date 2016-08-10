@@ -66,7 +66,7 @@
                            </td>
                            <td>
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-telephonic">{{ $data->telephonic }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-telephonic">{{ round($data->telephonic) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -81,7 +81,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-effective_communication">{{ $data->effective_communication }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-effective_communication">{{ round($data->effective_communication) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -96,7 +96,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-conflict_resolution">{{ $data->conflict_resolution }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-conflict_resolution">{{ round($data->conflict_resolution) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -111,7 +111,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-empathy">{{ $data->empathy }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-empathy">{{ round($data->empathy) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -126,7 +126,7 @@
                            </td>
                            <td>
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-software_exposure">{{ $data->software_exposure }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-software_exposure">{{ round($data->software_exposure) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -146,7 +146,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-typing">{{ $data->typing }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-typing">{{ round($data->typing) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -161,7 +161,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-attentive_listening">{{ $data->attentive_listening }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-attentive_listening">{{ round($data->attentive_listening) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -176,7 +176,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-decision_making">{{ $data->decision_making }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-decision_making">{{ round($data->decision_making) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -191,7 +191,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-quick_learner">{{ $data->quick_learner }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-quick_learner">{{ round($data->quick_learner) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -206,7 +206,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-knowledge_retention">{{ $data->knowledge_retention }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-knowledge_retention">{{ round($data->knowledge_retention) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -232,7 +232,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-time_management">{{ $data->time_management }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-time_management">{{ round($data->time_management) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -249,7 +249,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-handling_irate_customers">{{ $data->handling_irate_customers }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-handling_irate_customers">{{ round($data->handling_irate_customers) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -264,7 +264,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-flexible">{{ $data->flexible }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-flexible">{{ round($data->flexible) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -298,7 +298,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-multilingual">{{ $data->multilingual }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-multilingual">{{ round($data->multilingual) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -313,7 +313,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-rapport_building">{{ $data->rapport_building }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-rapport_building">{{ round($data->rapport_building) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -328,7 +328,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-creativity">{{ $data->creativity }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-creativity">{{ round($data->creativity) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -370,7 +370,7 @@
                            </td>
                            <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-persuasion">{{ $data->persuasion }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-persuasion">{{ round($data->persuasion) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -420,7 +420,7 @@
                            </td>
                             <td align="right">
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-adaptability">{{ $data->adaptability }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-adaptability">{{ round($data->adaptability) }}</a>
                               </font>
                            </td>
                         </tr>
