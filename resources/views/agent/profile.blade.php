@@ -49,10 +49,10 @@
             <table class="table" border="1" style="border: 1px solid #d1d1d1;">
                <tr class="tb-head">
                   <th>Basic Skills</th>
-                  <th>Competency Skills</th>
-                  <th>Behavioural Traits</th>
-                  <th>Product Related Skills</th>
-                  <th>Advanced Skills</th>
+                  <th>Soft Skills</th>
+                  <th>Customer Service Skills</th>
+                  <th>Behavioral Traits</th>
+                  <th>Knowledge Based Skills</th>
                </tr>
                <tr>
                   <td>
@@ -292,15 +292,8 @@
                   <td>
                      <table class="table">
                         <tr>
-                           <td>
-                              <img src="{{ asset('public/img/skills/multilingual.png') }}" class="img-responsive" width="35"> 
-                              Multilingual
-                           </td>
-                           <td align="right">
-                              <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-multilingual">{{ round($data->multilingual) }}</a>
-                              </font>
-                           </td>
+                           <td rowspan="6"></td>                              
+                           <td rowspan="6"></td>
                         </tr>
                      </table>
                   </td>
@@ -379,8 +372,15 @@
                   <td>
                      <table class="table">
                         <tr>
-                           <td rowspan="6"></td>                              
-                           <td rowspan="6"></td>                           
+                           <td>
+                              <img src="{{ asset('public/img/skills/team_player.png') }}" class="img-responsive" width="35"> 
+                              Team Player
+                           </td>
+                           <td align="right">
+                              <font size="2">
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-team_player">{{ round($data->team_player) }}</a>
+                              </font>
+                           </td>
                         </tr>
                      </table>
                   </td>
@@ -429,8 +429,15 @@
                   <td>
                      <table class="table">
                         <tr>
-                           <td rowspan="6"></td>                              
-                           <td rowspan="6"></td>                           
+                           <td>
+                              <img src="{{ asset('public/img/skills/multilingual.png') }}" class="img-responsive" width="35"> 
+                              Multilingual
+                           </td>
+                           <td align="right">
+                              <font size="2">
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-multilingual">{{ round($data->multilingual) }}</a>
+                              </font>
+                           </td>
                         </tr>
                      </table>
                   </td>
