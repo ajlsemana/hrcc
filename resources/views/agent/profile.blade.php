@@ -468,17 +468,8 @@
                   <td>
                      <table class="table">
                         <tr>
-                           <td>
-                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/multilingual/{{ $data->joining_date }}">
-                              <img src="{{ asset('public/img/skills/multilingual.png') }}" class="img-responsive" width="35"> 
-                              Multilingual
-                              </a>
-                           </td>
-                           <td align="right">
-                              <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-multilingual">{{ round($data->multilingual) }}</a>
-                              </font>
-                           </td>
+                           <td rowspan="6"></td>                              
+                           <td rowspan="6"></td>                           
                         </tr>
                      </table>
                   </td>
