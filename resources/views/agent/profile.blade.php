@@ -76,8 +76,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/effective_communication/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/effective_communication.png') }}" class="img-responsive" width="35"> 
                               Effective Communication
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -91,8 +93,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/conflict_resolution/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/conflict_resolution.png') }}" class="img-responsive" width="35"> 
                               Conflict Resolution
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -106,8 +110,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/empathy/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/empathy.png') }}" class="img-responsive" width="35"> 
                               Empathy
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -121,8 +127,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/industry_knowledge/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/industry_knowledge.png') }}" class="img-responsive" width="35"> 
                               Industry Knowledge
+                              </a>
                            </td>
                            <td>
                               <font size="2">
@@ -156,8 +164,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/attentive_listening/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/attentive_listening.png') }}" class="img-responsive" width="35"> 
                               Attentive Listening
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -171,8 +181,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/decision_making/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/decision_making.png') }}" class="img-responsive" width="35"> 
                               Decision Making
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -186,8 +198,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/quick_learner/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/quick_learner.png') }}" class="img-responsive" width="35"> 
                               Quick Learner
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -201,8 +215,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/knowledge_retention/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/knowledge_retention.png') }}" class="img-responsive" width="35"> 
                               Knowledge Retention
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -227,8 +243,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/attentive_listening/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/time_management.png') }}" class="img-responsive" width="35"> 
                               Time Management
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -259,8 +277,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/flexible/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/flexible.png') }}" class="img-responsive" width="35"> 
                               Flexible
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -274,8 +294,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/product_knowledge/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/product_knowledge.png') }}" class="img-responsive" width="35"> 
                               Product Knowledge
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -308,8 +330,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/rapport_building/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/rapport_building.png') }}" class="img-responsive" width="35"> 
                               Rapport Building
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -323,8 +347,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/creativity/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/creativity.png') }}" class="img-responsive" width="35"> 
                               Creativity
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -365,8 +391,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/persuasion/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/persuasion.png') }}" class="img-responsive" width="35"> 
                               Persuasion
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -380,8 +408,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/team_player/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/team_player.png') }}" class="img-responsive" width="35"> 
                               Team Player
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
@@ -422,8 +452,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/adaptability/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/adaptability.png') }}" class="img-responsive" width="35"> 
                               Adaptability
+                              </a>
                            </td>
                             <td align="right">
                               <font size="2">
@@ -437,8 +469,10 @@
                      <table class="table">
                         <tr>
                            <td>
+                              <a href="{{ url('admin/agent-eval/'.$data->uid) }}/all/multilingual/{{ $data->joining_date }}">
                               <img src="{{ asset('public/img/skills/multilingual.png') }}" class="img-responsive" width="35"> 
                               Multilingual
+                              </a>
                            </td>
                            <td align="right">
                               <font size="2">
