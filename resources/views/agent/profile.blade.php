@@ -121,12 +121,12 @@
                      <table class="table">
                         <tr>
                            <td>
-                              <img src="{{ asset('public/img/skills/software_exposure.png') }}" class="img-responsive" width="35"> 
-                              Softwares Exposure
+                              <img src="{{ asset('public/img/skills/industry_knowledge.png') }}" class="img-responsive" width="35"> 
+                              Industry Knowledge
                            </td>
                            <td>
                               <font size="2">
-                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-software_exposure">{{ round($data->software_exposure) }}</a>
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-industry_knowledge">{{ round($data->industry_knowledge) }}</a>
                               </font>
                            </td>
                         </tr>
@@ -273,8 +273,15 @@
                   <td>
                      <table class="table">
                         <tr>
-                           <td rowspan="6"></td>                              
-                           <td rowspan="6"></td>
+                           <td>
+                              <img src="{{ asset('public/img/skills/product_knowledge.png') }}" class="img-responsive" width="35"> 
+                              Product Knowledge
+                           </td>
+                           <td align="right">
+                              <font size="2">
+                              <a href="#skillDataModal" class="a-skill" data-toggle="modal" role="button" id="a-product_knowledge">{{ round($data->product_knowledge) }}</a>
+                              </font>
+                           </td>
                         </tr>
                      </table>
                   </td>
